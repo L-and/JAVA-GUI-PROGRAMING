@@ -85,7 +85,7 @@ public class LayoutEx extends JFrame
 			setLayout(new FlowLayout(FlowLayout.LEFT, 30, 40));
 			for(int i=0; i<5; i++)
 			{
-				btn[i] = new Button("¹öÆ°"+(i+1));
+				btn[i] = new Button("ï¿½ï¿½Æ°"+(i+1));
 				add(btn[i]);
 			}
 		}
@@ -100,7 +100,7 @@ public class LayoutEx extends JFrame
 			setLayout(new BorderLayout());
 			for(int i=0; i<5; i++)
 			{
-				btn[i] = new Button("¹öÆ°"+(i+1));
+				btn[i] = new Button("ï¿½ï¿½Æ°"+(i+1));
 				add(btn[i], dir[i]);
 			}
 		}
@@ -112,10 +112,10 @@ public class LayoutEx extends JFrame
 		
 		public GridPanel()
 		{
-			setLayout(new GridLayout(3, 3, 5, 5));
+			setLayout(new GridLayout(10, 10, 5, 5));
 			for(int i=0; i<5; i++)
 			{
-				btn[i] = new Button("¹öÆ°"+(i+1));
+				btn[i] = new Button("ï¿½ï¿½Æ°"+(i+1));
 				add(btn[i]);
 			}
 		}

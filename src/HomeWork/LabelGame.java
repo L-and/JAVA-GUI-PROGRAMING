@@ -31,17 +31,21 @@ public class LabelGame extends JFrame
 	
 	public LabelGame()
 	{
+		System.out.println(startTime);
+
 		createWindow();
 		createNumLabel();
 		createTimeLabel();
 		createRestartButton();
 		addLabel();
 		addRestartButton();
+		
+		contentPane.repaint();
 	}
 
 	public void createWindow()
 	{
-		setTitle("∂Û∫ß∞‘¿”");
+		setTitle("ÎùºÎ≤®Í≤åÏûÑ");
 		setSize(horizontalSize, verticalSize);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
@@ -76,7 +80,7 @@ public class LabelGame extends JFrame
 			
 			getRandomPosition();
 			numLabel[i].setLocation(xPos, yPos);
-			numLabel[i].setSize(15, 15);
+			numLabel[i].setSize(30, 15);
 			numLabel[i].setBackground(Color.RED);
 			numLabel[i].setOpaque(true);
 
@@ -86,7 +90,7 @@ public class LabelGame extends JFrame
 
 	public void createTimeLabel()
 	{
-		timeLabel = new JLabel("0√ ");
+		timeLabel = new JLabel("0Ï¥à");
 		timeLabel.setSize(50,15);
 		timeLabel.setLocation(10,10);
 		timeLabel.setBackground(Color.white);
@@ -95,7 +99,7 @@ public class LabelGame extends JFrame
 
 	public void createRestartButton()
 	{
-		restartBtn = new JButton("¿ÁΩ√¿€");
+		restartBtn = new JButton("Ïû¨ÏãúÏûë");
 		restartBtn.setLocation(10, 30);
 		restartBtn.setSize(80,40);
 		restartBtn.addActionListener(new restartActionHandler());
@@ -120,7 +124,7 @@ public class LabelGame extends JFrame
 	{
 		currentTime = System.currentTimeMillis();
 		double elapsedTime = (currentTime - startTime) / 1000.0;
-		String elapsedTimeStr = String.format("%.2f√ ", elapsedTime);
+		String elapsedTimeStr = String.format("%.2fÏ¥à", elapsedTime);
 
 		timeLabel.setText(elapsedTimeStr);
 	}
@@ -145,10 +149,12 @@ public class LabelGame extends JFrame
 
 			if(lblCount == count)
 			{
+
 				sourceLbl.setVisible(false);
 				count++;
 
 				updateTimeLabel();
+				System.out.println(currentTime);
 			}
 		}
 	}
@@ -164,7 +170,7 @@ public class LabelGame extends JFrame
 				setNumLabelVisibleTrue();
 				LabelRemoveMouseHandler.count = 1;
 				startTime = System.currentTimeMillis();
-				timeLabel.setText("0√ ");
+				timeLabel.setText("0Ï¥à");
 			}
 		}
 		
@@ -173,10 +179,6 @@ public class LabelGame extends JFrame
 	public static void main(String[] args)
 	{
 		new LabelGame();
+		
 	}
 }
-
-//1. 1~25ªÁ¿Ã¿« ∑π¿Ã∫Ì¿ª πﬂª˝Ω√≈≤¥Ÿ.
-//2. ¿”¿«¿« ¿ßƒ°ø° πËƒ°«—¥Ÿ. (πËƒ°∞¸∏Æ¿⁄∏¶ NULL ∑Œ √≥∏Æ)
-//3. ≥∑¿∫ ºˆ∫Œ≈Õ ≈¨∏Ø¿∏∑Œ ∑π¿Ã∫Ì¿ª æ¯æÿ¥Ÿ.
-//4. Ω√∞£¿ª √¯¡§«—¥Ÿ. [Ω…»≠]
