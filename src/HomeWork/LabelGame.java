@@ -178,7 +178,6 @@ public class LabelGame extends JFrame
 	
 	public static void main(String[] args)
 	{
-		new LabelGame();
-		
+		new LabelGame();	
 	}
 }
