@@ -121,8 +121,8 @@ class BookManagement extends JFrame
 				return true;
 			}
 		}
-
-		public Boolean isEmpty() 
+		
+		public Boolean isEmpty() //공백체크
 		{
 			for(int i=0; i<bookInfoTxtFlds.length; i++)
 			{
@@ -133,7 +133,7 @@ class BookManagement extends JFrame
 			return false;
 		}
 		
-		public String getEmptyLabelText()
+		public String getEmptyLabelText() // 공백인 라벨의 이름 반환
 		{
 			for(int i=0; i<bookInfoTxtFlds.length;i++)
 			{
@@ -205,7 +205,7 @@ public class BookdbEx
 
 	class ActionHandler implements ActionListener
 	{	
-		public void load()
+		public void load() // DB정보 불러오기
 		{
 			String sql = "SELECT * FROM book;";
 			String row = "";

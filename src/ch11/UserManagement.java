@@ -25,7 +25,7 @@ public class UserManagement extends JFrame{
 	{
 		container.setLayout(new BorderLayout());
 
-		setTitle("ÀÀ½ÃÀÚ °ü¸®");
+		setTitle("ì‘ì‹œì ê´€ë¦¬");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 
 		JPanel userInfoPanel = new UserInfoPanel();
@@ -37,10 +37,10 @@ public class UserManagement extends JFrame{
 
 	public class UserInfoPanel extends JPanel
 	{
-		List<UserInformation> userInfoList = new ArrayList<UserInformation>(); // À¯ÀúµéÀÇ Á¤º¸¸¦ ÀúÀåÇÏ±âÀ§ÇÑ ¸®½ºÆ®
+		List<UserInformation> userInfoList = new ArrayList<UserInformation>(); // ìœ ì €ë“¤ì˜ ì •ë³´ë¥¼ ì €ì¥í•˜ê¸°ìœ„í•œ ë¦¬ìŠ¤íŠ¸
 		public class EventListener implements ActionListener
 		{
-			static String selectedSex; // ¼±ÅÃµÈ ¼ºº°À» ÀúÀåÇÏ±âÀ§ÇÑ º¯¼ö
+			static String selectedSex; // ì„ íƒëœ ì„±ë³„ì„ ì €ì¥í•˜ê¸°ìœ„í•œ ë³€ìˆ˜
 
 
 
@@ -55,7 +55,7 @@ public class UserManagement extends JFrame{
 				{
 					JRadioButton radioBtn = (JRadioButton)source;
 
-					selectedSex = radioBtn.getActionCommand(); //¼±ÅÃµÈ ¼³º°À» ÀúÀå
+					selectedSex = radioBtn.getActionCommand(); //ì„ íƒëœ ì„¤ë³„ì„ ì €ì¥
 				}
 
 				if(source instanceof JButton)
@@ -66,22 +66,22 @@ public class UserManagement extends JFrame{
 					DefaultListModel<String> userInfoListModel = userInfoListPanel.getUserInfoListModelObject();
 					JList<String> userInfoJlist = userInfoListPanel.getUserInfoListObject();
 
-					if(btnTxt == "ÀÔ·Â")
+					if(btnTxt == "ì…ë ¥")
 					{
-						Boolean success = userInfo.createUserInfo(selectedSex); //ÀÔ·Â°ªÀ» Àß °¡Á®¿Ô´ÂÁö ÀúÀå
+						Boolean success = userInfo.createUserInfo(selectedSex); //ì…ë ¥ê°’ì„ ì˜ ê°€ì ¸ì™”ëŠ”ì§€ ì €ì¥
 
 						if(success)
 						{
-							userInfoListModel.addElement(userInfo.toString()); // ¸®½ºÆ®¸ğµ¨¿¡ À¯ÀúÁ¤º¸Ãß°¡
-							userInfoList.add(userInfo); //À¯ÀúÁ¤º¸¸®½ºÆ®¿¡ À¯ÀúÁ¤º¸Ãß°¡
+							userInfoListModel.addElement(userInfo.toString()); // ë¦¬ìŠ¤íŠ¸ëª¨ë¸ì— ìœ ì €ì •ë³´ì¶”ê°€
+							userInfoList.add(userInfo); //ìœ ì €ì •ë³´ë¦¬ìŠ¤íŠ¸ì— ìœ ì €ì •ë³´ì¶”ê°€
 
 							userPsInfoPanel.clearField();
 							foreignLangBtnPanel.clearSelect();
 						}
 					}
-					else if(btnTxt =="¼öÁ¤")
+					else if(btnTxt =="ìˆ˜ì •")
 					{
-						int selectedIndex = userInfoJlist.getSelectedIndex(); // ¼±ÅÃµÈ ÀÎµ¦½º¸¦ ÀúÀå
+						int selectedIndex = userInfoJlist.getSelectedIndex(); // ì„ íƒëœ ì¸ë±ìŠ¤ë¥¼ ì €ì¥
 
 						if(selectedIndex >= 0)
 						{
@@ -91,15 +91,15 @@ public class UserManagement extends JFrame{
 							userInfoList.remove(selectedIndex);
 						}
 					}
-					else if(btnTxt =="»èÁ¦")
+					else if(btnTxt =="ì‚­ì œ")
 					{
-						int index = userInfoJlist.getSelectedIndex(); //¼±ÅÃµÈ ¸â¹öÀÇ ÀÎµ¦½º¸¦ ÀúÀå, ¼±ÅÃÀÌ¾ÈµÇ¾úÀ¸¸é -1À» ¸®ÅÏÇÏ´Â ÇÔ¼ö
-						if(index >= 0) // ¼±ÅÃÀÌ µÇ¾îÀÖ´Ù¸é
+						int index = userInfoJlist.getSelectedIndex(); //ì„ íƒëœ ë©¤ë²„ì˜ ì¸ë±ìŠ¤ë¥¼ ì €ì¥, ì„ íƒì´ì•ˆë˜ì—ˆìœ¼ë©´ -1ì„ ë¦¬í„´í•˜ëŠ” í•¨ìˆ˜
+						if(index >= 0) // ì„ íƒì´ ë˜ì–´ìˆë‹¤ë©´
 							userInfoListModel.remove(index);
 					}
-					else if(btnTxt =="Ãë¼Ò")
+					else if(btnTxt =="ì·¨ì†Œ")
 					{
-						//						ÅØ½ºÆ®ÇÊµå¿Í ¹öÆ°µé ÃÊ±âÈ­
+						//						í…ìŠ¤íŠ¸í•„ë“œì™€ ë²„íŠ¼ë“¤ ì´ˆê¸°í™”
 						userPsInfoPanel.clearField();
 						foreignLangBtnPanel.clearSelect();
 					}
@@ -109,7 +109,7 @@ public class UserManagement extends JFrame{
 		}
 
 
-		//		°¢ ÆĞ³Î°´Ã¼ »ı¼º
+		//		ê° íŒ¨ë„ê°ì²´ ìƒì„±
 		UserPersonalInfoPanel userPsInfoPanel = new UserPersonalInfoPanel();
 		SexRadioBtnPanel sexRadioBtnPanel = new SexRadioBtnPanel();
 		ForeignLanguageBtnPanel foreignLangBtnPanel = new ForeignLanguageBtnPanel();
@@ -124,7 +124,7 @@ public class UserManagement extends JFrame{
 			JPanel centerPan = new JPanel();
 			JPanel southPan = new JPanel();
 			
-			//			À¯ÀúÁ¤º¸ÆĞ³Î¿¡ ÇÏÀ§ÆĞ³Îµé Ãß°¡
+			//			ìœ ì €ì •ë³´íŒ¨ë„ì— í•˜ìœ„íŒ¨ë„ë“¤ ì¶”ê°€
 			northPan.add(userPsInfoPanel);
 			northPan.add(sexRadioBtnPanel);
 			
@@ -141,21 +141,21 @@ public class UserManagement extends JFrame{
 
 		}
 
-		//		À¯Àú°³ÀÎÁ¤º¸ÆĞ³Î Å¬·¡½º
+		//		ìœ ì €ê°œì¸ì •ë³´íŒ¨ë„ í´ë˜ìŠ¤
 		public class UserPersonalInfoPanel extends JPanel
 		{
 			JTextField nameTextField = new JTextField(5);
 			JTextField phoneTextField = new JTextField(13);
 			public UserPersonalInfoPanel()
 			{
-				JLabel nameLabel = new JLabel("ÀÌ¸§");
-				JLabel phoneLabel = new JLabel("ÀüÈ­");
+				JLabel nameLabel = new JLabel("ì´ë¦„");
+				JLabel phoneLabel = new JLabel("ì „í™”");
 
-				//				¹è°æ»ö»ó º¯°æ
+				//				ë°°ê²½ìƒ‰ìƒ ë³€ê²½
 				nameTextField.setBackground(Color.YELLOW);
 
 
-				//				À¯Àú°³ÀÎÁ¤º¸ÆĞ³Î¿¡ ¶óº§°ú ÅØ½ºÆ®ÇÊµå Ãß°¡
+				//				ìœ ì €ê°œì¸ì •ë³´íŒ¨ë„ì— ë¼ë²¨ê³¼ í…ìŠ¤íŠ¸í•„ë“œ ì¶”ê°€
 				add(nameLabel);
 				add(nameTextField);
 				add(phoneLabel);
@@ -190,40 +190,40 @@ public class UserManagement extends JFrame{
 			}
 		}
 
-		//		¼ºº°¶óµğ¿À¹öÆ°ÆĞ³Î Å¬·¡½º
+		//		ì„±ë³„ë¼ë””ì˜¤ë²„íŠ¼íŒ¨ë„ í´ë˜ìŠ¤
 		public class SexRadioBtnPanel extends JPanel
 		{
-			JRadioButton manRadioBtn = new JRadioButton("³²ÀÚ");
-			JRadioButton womanRadioBtn = new JRadioButton("¿©ÀÚ");
+			JRadioButton manRadioBtn = new JRadioButton("ë‚¨ì");
+			JRadioButton womanRadioBtn = new JRadioButton("ì—¬ì");
 
 			ButtonGroup sexBtnGroup = new ButtonGroup();
 			public SexRadioBtnPanel()
 			{
-				//				¹è°æ»ö»ó º¯°æ
+				//				ë°°ê²½ìƒ‰ìƒ ë³€ê²½
 				manRadioBtn.setBackground(Color.LIGHT_GRAY);
 				womanRadioBtn.setBackground(Color.LIGHT_GRAY);
 				setBackground(Color.LIGHT_GRAY);
 
-				//				¹öÆ°±×·ì¿¡ ¶óµğ¿À¹öÆ° Ãß°¡
+				//				ë²„íŠ¼ê·¸ë£¹ì— ë¼ë””ì˜¤ë²„íŠ¼ ì¶”ê°€
 				sexBtnGroup.add(manRadioBtn);
 				sexBtnGroup.add(womanRadioBtn);
 
-				//				°¢ ¹öÆ°¿¡ ¸®½º³Ê Ãß°¡
+				//				ê° ë²„íŠ¼ì— ë¦¬ìŠ¤ë„ˆ ì¶”ê°€
 				manRadioBtn.addActionListener(new EventListener());
 				womanRadioBtn.addActionListener(new EventListener());
 
-				//				¼ºº°¶óµğ¿À¹öÆ°ÆĞ³Î¿¡ ¶óµğ¿À¹öÆ° Ãß°¡
+				//				ì„±ë³„ë¼ë””ì˜¤ë²„íŠ¼íŒ¨ë„ì— ë¼ë””ì˜¤ë²„íŠ¼ ì¶”ê°€
 				add(manRadioBtn);
 				add(womanRadioBtn);
 			}
 
 			public void setSelectBtn(String sex)
 			{
-				if(sex == "³²ÀÚ")
+				if(sex == "ë‚¨ì")
 				{
 					manRadioBtn.setSelected(true);
 				}
-				else if(sex == "¿©ÀÚ")
+				else if(sex == "ì—¬ì")
 				{ 
 					womanRadioBtn.setSelected(true);
 				}
@@ -231,31 +231,31 @@ public class UserManagement extends JFrame{
 			
 		}
 
-		//		¿Ü±¹¾î¹öÆ°ÆĞ³Î Å¬·¡½º
+		//		ì™¸êµ­ì–´ë²„íŠ¼íŒ¨ë„ í´ë˜ìŠ¤
 		public class ForeignLanguageBtnPanel extends JPanel
 		{
 			List<JCheckBox> languageBtnList = new ArrayList<>();			
-			String[] foreignLanguage = {"¿µ¾î", "Áß±¹¾î", "ÀÏº»¾î", "½ºÆäÀÎ¾î", "·¯½Ã¾Æ¾î"};
+			String[] foreignLanguage = {"ì˜ì–´", "ì¤‘êµ­ì–´", "ì¼ë³¸ì–´", "ìŠ¤í˜ì¸ì–´", "ëŸ¬ì‹œì•„ì–´"};
 			JCheckBox[] foreignLanguageBtn = new JCheckBox[foreignLanguage.length];
 
 
 			public ForeignLanguageBtnPanel()
 			{
-				//				Ã¼Å©¹Ú½º °´Ã¼»ı¼º
+				//				ì²´í¬ë°•ìŠ¤ ê°ì²´ìƒì„±
 				for(int i=0; i<5; i++)
 				{
 					foreignLanguageBtn[i] = new JCheckBox(foreignLanguage[i]);
-					add(foreignLanguageBtn[i]); // ÆĞ³Î¿¡ ¹öÆ°Ãß°¡
+					add(foreignLanguageBtn[i]); // íŒ¨ë„ì— ë²„íŠ¼ì¶”ê°€
 
-					languageBtnList.add(foreignLanguageBtn[i]); // ¹öÆ°±×·ì¿¡ ¹öÆ°Ãß°¡
+					languageBtnList.add(foreignLanguageBtn[i]); // ë²„íŠ¼ê·¸ë£¹ì— ë²„íŠ¼ì¶”ê°€
 				}
 
 
-				//				ÆĞ³Î»çÀÌÁî ¼³Á¤
+				//				íŒ¨ë„ì‚¬ì´ì¦ˆ ì„¤ì •
 				setPreferredSize(new Dimension(windowHorizontalSize - windowHorizontalSize / 5, 70));
 
-				//				Å×µÎ¸® ¼³Á¤
-				setBorder(new TitledBorder(new LineBorder(Color.LIGHT_GRAY), "°¡´É ¿Ü±¹¾î ¼±ÅÃ"));
+				//				í…Œë‘ë¦¬ ì„¤ì •
+				setBorder(new TitledBorder(new LineBorder(Color.LIGHT_GRAY), "ê°€ëŠ¥ ì™¸êµ­ì–´ ì„ íƒ"));
 			}
 
 
@@ -263,7 +263,7 @@ public class UserManagement extends JFrame{
 			{
 				List<String> selectedLanguageList = new ArrayList<String>();
 
-				//				Ã¼Å©°¡ µÇ¾îÀÖ´Ù¸é ¸®½ºÆ®¿¡ ¿Ü±¹¾îÀÌ¸§À» Ãß°¡
+				//				ì²´í¬ê°€ ë˜ì–´ìˆë‹¤ë©´ ë¦¬ìŠ¤íŠ¸ì— ì™¸êµ­ì–´ì´ë¦„ì„ ì¶”ê°€
 				for(int i=0; i<foreignLanguage.length; i++)
 				{
 					JCheckBox button = languageBtnList.get(i);
@@ -279,7 +279,7 @@ public class UserManagement extends JFrame{
 
 			public void setSelectLanguage(List<String> languageList)
 			{
-//				¿Ü±¹¾î¸®½ºÆ®¿¡ ÀÖ´Â°ÍÀº ¼±ÅÃ ¾ø´Â°ÍÀº ¼±ÅÃÇØÁ¦
+//				ì™¸êµ­ì–´ë¦¬ìŠ¤íŠ¸ì— ìˆëŠ”ê²ƒì€ ì„ íƒ ì—†ëŠ”ê²ƒì€ ì„ íƒí•´ì œ
 				for(int i=0; i<foreignLanguage.length; i++)
 				{
 					JCheckBox button = languageBtnList.get(i);
@@ -304,7 +304,7 @@ public class UserManagement extends JFrame{
 			}
 		}
 
-		//		À¯ÀúÁ¤º¸¸®½ºÆ®ÆĞ³Î Å¬·¡½º
+		//		ìœ ì €ì •ë³´ë¦¬ìŠ¤íŠ¸íŒ¨ë„ í´ë˜ìŠ¤
 		public class UserInfoListPanel extends JPanel
 		{
 			DefaultListModel<String> userInfoModel = new DefaultListModel<String>();
@@ -313,19 +313,19 @@ public class UserManagement extends JFrame{
 
 			public UserInfoListPanel()
 			{
-				//				·¹ÀÌ¾Æ¿ô ¼³Á¤
+				//				ë ˆì´ì•„ì›ƒ ì„¤ì •
 				setLayout(new BorderLayout());
 
-				//				»çÀÌÁî ¼³Á¤
+				//				ì‚¬ì´ì¦ˆ ì„¤ì •
 				setPreferredSize(new Dimension(windowHorizontalSize - windowHorizontalSize / 4, windowHorizontalSize / 2));
 
-				//				Å×µÎ¸®»ö»ó ¼³Á¤
+				//				í…Œë‘ë¦¬ìƒ‰ìƒ ì„¤ì •
 				setBorder(new LineBorder(Color.LIGHT_GRAY));
 
-				//				ÇÏ³ª¸¸ ¼±ÅÃµÇµµ·Ï ¼³Á¤
+				//				í•˜ë‚˜ë§Œ ì„ íƒë˜ë„ë¡ ì„¤ì •
 				userInfoList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-				//				ÆĞ³Î¿¡ Ãß°¡
+				//				íŒ¨ë„ì— ì¶”ê°€
 				add(userInfoList);
 
 			}
@@ -341,40 +341,40 @@ public class UserManagement extends JFrame{
 			}
 		}
 
-		//		ÀÌº¥Æ®¹öÆ°ÆĞ³Î Å¬·¡½º
+		//		ì´ë²¤íŠ¸ë²„íŠ¼íŒ¨ë„ í´ë˜ìŠ¤
 		public class EventButtonPanel extends JPanel
 		{
 			public EventButtonPanel()
 			{
 				JButton[] eventBtn = new JButton[4];
-				String[] eventName = {"ÀÔ·Â", "¼öÁ¤", "»èÁ¦", "Ãë¼Ò"};
+				String[] eventName = {"ì…ë ¥", "ìˆ˜ì •", "ì‚­ì œ", "ì·¨ì†Œ"};
 
 
 				for(int i=0; i<4; i++)
 				{
 
-					eventBtn[i] = new JButton(eventName[i]); // ¹öÆ°°´Ã¼ »ı¼º
-					add(eventBtn[i]); // ÀÌº¥Æ®¹öÆ°ÆĞ³Î¿¡ ¹öÆ° Ãß°¡
+					eventBtn[i] = new JButton(eventName[i]); // ë²„íŠ¼ê°ì²´ ìƒì„±
+					add(eventBtn[i]); // ì´ë²¤íŠ¸ë²„íŠ¼íŒ¨ë„ì— ë²„íŠ¼ ì¶”ê°€
 
-					eventBtn[i].addActionListener(new EventListener()); // ¸®½º³Ê Ãß°¡
+					eventBtn[i].addActionListener(new EventListener()); // ë¦¬ìŠ¤ë„ˆ ì¶”ê°€
 
 				}
 			}
 		}
 
-		//		À¯ÀúÁ¤º¸ Å¬·¡½º
+		//		ìœ ì €ì •ë³´ í´ë˜ìŠ¤
 		public class UserInformation
 		{
 			String name;
 			String phone;
 			String sex;
-			//						°¡´É¿Ü±¹¾î ¸®½ºÆ®¸¦ ÀúÀå
+			//						ê°€ëŠ¥ì™¸êµ­ì–´ ë¦¬ìŠ¤íŠ¸ë¥¼ ì €ì¥
 			List<String> langList;
 
-			//			ÇÊµåÀÔ·Â°ªÀ¸·Î À¯ÀúÁ¤º¸ »ı¼º
+			//			í•„ë“œì…ë ¥ê°’ìœ¼ë¡œ ìœ ì €ì •ë³´ ìƒì„±
 			public Boolean createUserInfo(String sex) 
 			{
-				//ÀÔ·Â°ªµéÀ» ÀúÀå
+				//ì…ë ¥ê°’ë“¤ì„ ì €ì¥
 				name = userPsInfoPanel.getUserName();
 				phone = userPsInfoPanel.getUserPhone();
 
@@ -383,15 +383,15 @@ public class UserManagement extends JFrame{
 				this.sex = sex;
 
 
-				//ÀÔ·Â°ª¿¡ °ø¹éÀÌ¾øÀ¸¸é true ¸®ÅÏ
+				//ì…ë ¥ê°’ì— ê³µë°±ì´ì—†ìœ¼ë©´ true ë¦¬í„´
 				if(!name.equals("") && !phone.equals("") && !sex.equals(""))
 					return true;
-				else // °ø¹éÀÌÀÖ´Ù¸é false¸®ÅÏ
+				else // ê³µë°±ì´ìˆë‹¤ë©´ falseë¦¬í„´
 					return false;
 			}
 
 			
-			//			ÇÊµå·Î À¯ÀúÁ¤º¸ ºÒ·¯¿À±â
+			//			í•„ë“œë¡œ ìœ ì €ì •ë³´ ë¶ˆëŸ¬ì˜¤ê¸°
 			public void loadUserInfo()
 			{
 				userPsInfoPanel.setUserName(name);
