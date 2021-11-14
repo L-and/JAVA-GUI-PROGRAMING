@@ -385,7 +385,7 @@ public class BookdbEx
 		String password = "Land9923625m";
 		try
 		{
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 			System.out.println("드라이브 적재 성공");
 			con = DriverManager.getConnection(url, id, password);
 			stmt = con.createStatement();
